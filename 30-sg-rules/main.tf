@@ -9,7 +9,7 @@ resource "aws_security_group_rule" "backend_alb_bastion" {
 }
 
 # BASTION accepting Traffic from All
-resource "aws_security_group_rule" "backend_alb_bastion" {
+resource "aws_security_group_rule" "bastion_laptop" {
   type              = "ingress"
   security_group_id = local.backend_alb_sg_id
   cidr_blocks = ["0.0.0.0/0"]
