@@ -16,3 +16,20 @@ resource "aws_lb" "backend-alb" {
     }
   )
 }
+
+# Backend ALB listening on port no 80
+resource "aws_lb_listener" "front_end" {
+  load_balancer_arn = aws_lb.backend_alb.arn
+  port              = "80"
+  protocol          = "HTTP"
+
+  default_action {
+    type = "fixed-response"
+
+    fixed_response {
+      content_type = "text/plain"
+      message_body = "Hi, I am from Backend ALB HTTP"
+      status_code  = "200"
+    }
+  }
+}
