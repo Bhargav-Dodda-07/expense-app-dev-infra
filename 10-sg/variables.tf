@@ -15,8 +15,8 @@ variable "sg_names" {
         "backend",
 
         # Backend_alb
-        "backend_alb"
-        
+        "backend_alb",
+
         # Frontend
         "frontend",
 
