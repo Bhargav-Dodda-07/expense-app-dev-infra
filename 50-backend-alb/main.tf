@@ -5,9 +5,9 @@ resource "aws_lb" "backend_alb" {
   security_groups    = [local.backend_alb_sg_id]
 
   # it should be created under private subnet
-  subnets            = local.public_subnet_ids
+  subnets            = local.private_subnet_ids
 
-  enable_deletion_protection = true
+  enable_deletion_protection = true  # prevents accidental deletion
 
   tags = merge(
     local.common_tags,
